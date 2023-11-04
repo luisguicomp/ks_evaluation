@@ -3,6 +3,9 @@
 KS_EVALUATION is a Python library that evaluates the Kolmogorov–Smirnov (KS) metric, which compares the two cumulative distributions (binary target) and returns the maximum difference between them.
 
 ## Installation
+```bash
+pip install git+https://github.com/luisguicomp/ks_evaluation
+```
 
 ## Use
 Functions:
