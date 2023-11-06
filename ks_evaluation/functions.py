@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 def plot_ks_chart(ks_table):
     """Function to plot KS chart"""
     ks_table['%cum_true_num'] = ks_table['%cum_true'].str.replace('%','').astype('float')
-    ks_table['%cum_bad_num'] = ks_table['%cum_bad'].str.replace('%','').astype('float')
+    ks_table['%cum_false_num'] = ks_table['%cum_false'].str.replace('%','').astype('float')
     plt.figure(figsize=(10,6))
     plt.plot(ks_table.index, ks_table['%cum_true_num'], 'g')
-    plt.plot(ks_table.index, ks_table['%cum_bad_num'], 'r')
-    plt.fill_between(ks_table.index, ks_table['%cum_true_num'], ks_table['%cum_bad_num'], color="grey", alpha=0.2, hatch='|')
+    plt.plot(ks_table.index, ks_table['%cum_false_num'], 'r')
+    plt.fill_between(ks_table.index, ks_table['%cum_true_num'], ks_table['%cum_false_num'], color="grey", alpha=0.2, hatch='|')
     plt.xticks(ks_table.index)
     plt.title('KS - Accumulated curves')
-    plt.legend(['%true', '%bad'], loc='lower right')
+    plt.legend(['%true', '%false'], loc='lower right')
     plt.xlabel('Decile')
     plt.ylabel('% Accumulated')
     plt.show()
@@ -54,7 +54,7 @@ def ks_calc(data=None, target=None, prob=None, verbose=True, buckets=10):
 
     #Formating
     kstable['%cum_true']= kstable['%cum_true'].apply('{0:.2%}'.format)
-    kstable['%cum_bad']= kstable['%cum_bad'].apply('{0:.2%}'.format)
+    kstable['%cum_false']= kstable['%cum_false'].apply('{0:.2%}'.format)
     kstable.index = range(1,11)
     kstable.index.rename('Decile', inplace=True)
     pd.set_option('display.max_columns', 9)
