@@ -31,6 +31,13 @@ rfc.fit(X_train, y_train)
 ks_score, ks_table = ks_calculate(rfc, X_test, y_test, target='y', verbose=True)
 plot_ks_chart(ks_table)
 ```
+## References
+
+https://www.listendata.com/2019/07/KS-Statistics-Python.html
+
+https://medium.com/@xiaowei_6531/using-ks-stat-as-a-model-evaluation-metric-in-scikit-learns-gridsearchcv-33135101601c
+
+https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test
 
 ## License
 LGR - Data Science
